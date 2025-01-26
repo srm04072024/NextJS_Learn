@@ -25,6 +25,13 @@ export default function EditInvoiceForm({
   return (
     <form action={formAction}>
       <div className="rounded-md bg-gray-50 p-4 md:p-6">
+        {state.errors && (
+          <div className="mb-4 text-red-500">
+            {Object.values(state.errors).map((error, index) => (
+              <p key={index}>{error}</p>
+            ))}
+          </div>
+        )}
         {/* Customer Name */}
         <div className="mb-4">
           <label htmlFor="customer" className="mb-2 block text-sm font-medium">
